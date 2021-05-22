@@ -35,48 +35,48 @@ void loop()
     //output WEVAMWO in morse code
     //w
     Serial.println("W");
-    short_beep();
+    dot();
     delay(morse_unit);
     for (int i = 0; i < 2; i++) {
-      long_beep();
+      dash();
       delay(morse_unit);
     }
     delay(morse_unit * 2);
     
     //e
     Serial.println("E");
-    short_beep();
+    dot();
     delay(morse_unit * 3);
     
     //v
     Serial.println("V");
     for (int i = 0; i < 3; i++) {
-      short_beep();
+      dot();
       delay(morse_unit);
     }
-    long_beep();
+    dash();
     delay(morse_unit * 3);
     
     //a
     Serial.println("A");
-    short_beep();
+    dot();
     delay(morse_unit);
-    long_beep();
+    dash();
     delay(morse_unit * 3);
     
     //m
     Serial.println("M");
-    long_beep();
+    dash();
     delay(morse_unit);
-    long_beep();
+    dash();
     delay(morse_unit * 3);
     
     //w
     Serial.println("W");
-    short_beep();
+    dot();
     delay(morse_unit);
     for (int i = 0; i < 2; i++) {
-      long_beep();
+      dash();
       delay(morse_unit);
     }
     delay(morse_unit * 2);
@@ -84,7 +84,7 @@ void loop()
     //o
     Serial.println("O");
     for (int i = 0; i < 3; i++) {
-      long_beep();
+      dash();
       delay(morse_unit);
     }
     delay(morse_unit * 2);
@@ -94,10 +94,10 @@ void loop()
     //output 10736842 in morse code
     //1
     Serial.println("Morse 1");
-    short_beep();
+    dot();
     delay(morse_unit);
     for (int i = 0; i < 4; i++) {
-      long_beep();
+      dash();
       delay(morse_unit);
     }
     delay(morse_unit * 2);
@@ -105,7 +105,7 @@ void loop()
     //0
     Serial.println("Morse 0");
     for (int i = 0; i < 5; i++) {
-      long_beep();
+      dash();
       delay(morse_unit);
     }
     delay(morse_unit * 2);
@@ -113,11 +113,11 @@ void loop()
     //7
     Serial.println("Morse 7");
     for (int i = 0; i < 2; i++) {
-      long_beep();
+      dash();
       delay(morse_unit);
     }
     for (int i = 0; i < 3; i++) {
-      short_beep();
+      dot();
       delay(morse_unit);
     }
     delay(morse_unit * 2);
@@ -125,21 +125,21 @@ void loop()
     //3
 	Serial.println("Morse 3");
     for (int i = 0; i < 3; i++) {
-      short_beep();
+      dot();
       delay(morse_unit);
     }
     for (int i = 0; i < 2; i++) {
-      long_beep();
+      dash();
       delay(morse_unit);
     }
     delay(morse_unit * 2);
     
     //6
     Serial.println("Morse 6");
-    long_beep();
+    dash();
     delay(morse_unit);
     for (int i = 0; i < 4; i++) {
-      short_beep();
+      dot();
       delay(morse_unit);
     }
     delay(morse_unit * 2);
@@ -147,11 +147,11 @@ void loop()
     //8
     Serial.println("Morse 8");
     for (int i = 0; i < 3; i++) {
-      long_beep();
+      dash();
       delay(morse_unit);
     }
     for (int i = 0; i < 2; i++) {
-      short_beep();
+      dot();
       delay(morse_unit);
     }
     delay(morse_unit * 2);
@@ -159,33 +159,33 @@ void loop()
     //4
     Serial.println("Morse 4");
     for (int i = 0; i < 5; i++) {
-      short_beep();
+      dot();
       delay(morse_unit);
     }
-    long_beep();
+    dash();
     delay(morse_unit * 3);
     
     //2
     Serial.println("Morse 2");
     for (int i = 0; i < 2; i++) {
-      short_beep();
+      dot();
       delay(morse_unit);
     }
     for (int i = 0; i < 3; i++) {
-      long_beep();
+      dash();
       delay(morse_unit);
     }
     delay(morse_unit * 2);
   }
 }
 
-void short_beep() {
+void dot() {
   tone(buzzer, 200);
   delay(morse_unit);
   noTone(buzzer);
 }
 
-void long_beep () {
+void dash () {
   tone(buzzer, 200);
   delay(morse_unit * 3);
   noTone(buzzer);
