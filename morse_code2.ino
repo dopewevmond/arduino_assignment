@@ -30,78 +30,59 @@ void loop()
   second = digitalRead(second_button);
   
   if (first == HIGH) {
-    //ask the question
     //a
-    short_beep();
-    delay(morse_unit);
-    long_beep();
-    delay(morse_unit * 3);
+    dot(1);
+    dash(3);
     
     //m
-    long_beep();
-    delay(morse_unit);
-    long_beep();
-    delay(morse_unit * 7);
+    dash(1);
+    dash(7);
     
     //i
     for (int i = 0; i < 2; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
     delay(morse_unit * 6);
     
     //c
     for (int i = 0; i < 2; i++) {
-      long_beep();
-      delay(morse_unit);
-      short_beep();
-      delay(morse_unit);
+      dash(1);
+      dot(1);
     }
     delay(morse_unit * 2);
     
     //o
     for (int i = 0; i < 3; i++) {
-      long_beep();
-      delay(morse_unit);
+      dash(1);
     }
     delay(morse_unit * 2);
     
     //n
-    long_beep();
-    delay(morse_unit);
-    short_beep();
-    delay(morse_unit * 3);
+    dash(1);
+    dot(3);
     
     //t
-    long_beep();
-    delay(morse_unit * 3);
+    dash(3);
     
     //e
-    short_beep();
-    delay(morse_unit * 3);
+    dot(3);
     
     //n
-    long_beep();
-    delay(morse_unit);
-    short_beep();
-    delay(morse_unit * 3);
+    dash(1);
+    dot(3);
     
     //t
-    long_beep();
-    delay(morse_unit * 3);
+    dash(3);
     
     //?
     for (int i = 0; i < 2; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
     for (int i = 0; i < 2; i++) {
-      long_beep();
-      delay(morse_unit);
+      dash(1);
     }
     for (int i = 0; i < 2; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
   } 
   
@@ -109,139 +90,113 @@ void loop()
     //ask "What is the sea level"
     
     //w
-    short_beep();
-    delay(morse_unit);
+    dot(1);
     for (int i = 0 ; i < 2; i++) {
-      long_beep();
-      delay(morse_unit);
+      dash(1);
     }
     delay(morse_unit * 2);
     
     //h
     for (int i = 0; i < 4; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
     delay(morse_unit * 2);
     
     //a
-    short_beep();
-    delay(morse_unit);
-    long_beep();
-    delay(morse_unit * 3);
+    dot(1);
+    dash(3);
     
     //t
-    long_beep();
-    delay(morse_unit * 7);
+    dash(7);
     
     //i
     for (int i = 0; i < 2; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
     delay(morse_unit * 2);
     
     //s
     for (int i = 0; i < 3; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
     delay(morse_unit * 6);
     
     //t
-    long_beep();
-    delay(morse_unit * 3);
+    dash(3);
     
     //h
     for (int i = 0; i < 4; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
     delay(morse_unit * 2);
     
     //e
-    short_beep();
-    delay(morse_unit * 7);
+    dot(7);
     
     //s
     for (int i = 0; i < 3; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
     delay(morse_unit * 2);
     
     //e
-    short_beep();
-    delay(morse_unit * 3);
+    dot(3);
     
     //a
-    short_beep();
-    delay(morse_unit);
-    long_beep();
-    delay(morse_unit * 7);
+    dot(1);
+    dash(7);
     
     //l
-    short_beep();
-    delay(morse_unit);
-    long_beep();
-    delay(morse_unit);
+    dot(1);
+    dash(1);
     for (int i = 0; i < 2; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
     delay(morse_unit * 2);
     
     //e
-    short_beep();
-    delay(morse_unit * 3);
+    dot(1);
     
     //v
     for (int i = 0; i < 3; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
-    long_beep();
-    delay(morse_unit * 3);
+    dash(3);
     
     //e
-    short_beep();
-    delay(morse_unit * 3);
+    dot(3);
     
     //l
-    short_beep();
-    delay(morse_unit);
-    long_beep();
-    delay(morse_unit);
+    dot(1);
+    dash(1);
     for (int i = 0; i < 2; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
     delay(morse_unit * 2);
     
     //?
     for (int i = 0; i < 2; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
     for (int i = 0; i < 2; i++) {
-      long_beep();
-      delay(morse_unit);
+      dash(1);
     }
     for (int i = 0; i < 2; i++) {
-      short_beep();
-      delay(morse_unit);
+      dot(1);
     }
   }
 }
 
-void short_beep() {
+void dot(int del) {
   tone(buzzer, 200);
   delay(morse_unit);
   noTone(buzzer);
+  delay(morse_unit * del);
 }
 
-void long_beep () {
+void dash (int del) {
   tone(buzzer, 200);
   delay(morse_unit * 3);
   noTone(buzzer);
+  delay(morse_unit * del);
 }

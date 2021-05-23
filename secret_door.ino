@@ -13,7 +13,7 @@ int first, second, third;
 
 //initializing an array to store the order in which the 
 //buttons were pressed
-int button_order[] = {0, 0, 0};
+int sequence[] = {0, 0, 0, 0};
 
 void setup()
 {
@@ -35,64 +35,72 @@ void loop()
   second = digitalRead(second_button);
   third = digitalRead(third_button);
   
-  if (button_order[0] == 0 && button_order[1] == 0 && button_order[2] == 0) {
-    //Serial.println("The sequence is empty");
+  if (sequence[0] == 0 && sequence[1] == 0 && sequence[2] == 0 && sequence[3] == 0) {
     if (first == HIGH){
-      use_buzzer();
-      button_order[0] = 1;
+      beep();
+      sequence[0] = 1;
     } else if (second == HIGH) {
-      use_buzzer();
-      button_order[0] = 2;
+      beep();
+      sequence[0] = 2;
     } else if (third == HIGH) {
-      use_buzzer();
-      button_order[0] = 3;
+      beep();
+      sequence[0] = 3;
     }
   }
   
   
-  else if (button_order[0] != 0 && button_order[1] == 0 && button_order[2] == 0) {
-    //Serial.println("2 digits remaining");
+  else if (sequence[0] != 0 && sequence[1] == 0 && sequence[2] == 0  && sequence[3] == 0) {
     if (first == HIGH){
-      use_buzzer();
-      button_order[1] = 1;
+      beep();
+      sequence[1] = 1;
     } else if (second == HIGH) {
-      use_buzzer();
-      button_order[1] = 2;
+      beep();
+      sequence[1] = 2;
     } else if (third == HIGH) {
-      use_buzzer();
-      button_order[1] = 3;
+      beep();
+      sequence[1] = 3;
     }
   }
   
   
-  else if (button_order[0] != 0 && button_order[1] != 0 && button_order[2] == 0) {
-    //Serial.println("One digit remaining");
+  else if (sequence[0] != 0 && sequence[1] != 0 && sequence[2] == 0 && sequence[3] == 0) {
     if (first == HIGH){
-      use_buzzer();
-      button_order[2] = 1;
+      beep();
+      sequence[2] = 1;
     } else if (second == HIGH) {
-      use_buzzer();
-      button_order[2] = 2;
+      beep();
+      sequence[2] = 2;
     } else if (third == HIGH) {
-      use_buzzer();
-      button_order[2] = 3;
+      beep();
+      sequence[2] = 3;
+    }
+  }
+
+  else if (sequence[0] != 0 && sequence[1] != 0 && sequence[2] != 0 && sequence[3] == 0) {
+    if (first == HIGH){
+      beep();
+      sequence[3] = 1;
+    } else if (second == HIGH) {
+      beep();
+      sequence[3] = 2;
+    } else if (third == HIGH) {
+      beep();
+      sequence[3] = 3;
     }
   }
   
   else {
-    if (button_order[0] == 2 && button_order[1] == 1 && button_order[2] == 3) {
+    if (sequence[0] == 2 && sequence[1] == 2 && sequence[2] == 1 && sequence[3] == 3) {
       digitalWrite(green_led, HIGH);
-      Serial.println("The sequence is correct");
     }
     else {
       digitalWrite(red_led, HIGH);
-      Serial.println("The sequence is wrong");
     }
   }
 }
 
-void use_buzzer() {
+void beep() {
   tone(buzzer, 500);
-  delay(250);
+  delay(200);
   noTone(buzzer);
 }
